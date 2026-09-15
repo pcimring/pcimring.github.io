@@ -68,3 +68,29 @@ test("AI Orchestration & BPMN has 3 live cards with working links", () => {
     "Camunda Docs — Merged Contribution",
   ]);
 });
+
+test("Agentic Frameworks has 2 cards: one live, one in progress with no link", () => {
+  const document = loadDocument();
+  const section = document.getElementById("agentic-frameworks");
+  assert.ok(section, "expected section#agentic-frameworks to exist");
+  assert.equal(section.querySelector("h2").textContent.trim(), "Agentic Frameworks");
+
+  const cards = [...section.querySelectorAll(".card")];
+  assert.equal(cards.length, 2);
+
+  const statuses = cards
+    .map((c) => c.querySelector(".card-status").textContent.trim())
+    .sort();
+  assert.deepEqual(statuses, ["In Progress", "Live"]);
+
+  const inProgress = cards.find(
+    (c) => c.querySelector(".card-status").textContent.trim() === "In Progress"
+  );
+  assert.equal(inProgress.querySelector(".card-link"), null,
+    "in-progress card should not link anywhere yet");
+
+  const live = cards.find(
+    (c) => c.querySelector(".card-status").textContent.trim() === "Live"
+  );
+  assert.match(live.querySelector(".card-link").getAttribute("href"), /^https:\/\/github\.com/);
+});
