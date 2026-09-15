@@ -24,3 +24,20 @@ test("nav has 4 links with the expected labels and anchor targets", () => {
     assert.equal(links[i].getAttribute("href"), href);
   });
 });
+
+test("bio section has the approved headline and bio text", () => {
+  const document = loadDocument();
+  const section = document.getElementById("bio");
+  assert.ok(section, "expected section#bio to exist");
+
+  assert.equal(section.querySelector("h1").textContent.trim(), "Peter Cimring");
+  assert.equal(
+    section.querySelector(".hero-title").textContent.trim(),
+    "Technical Writer · Content Engineer"
+  );
+  assert.match(section.querySelector(".hero-bio").textContent, /developers\.taboola\.com/);
+  assert.equal(
+    section.querySelector(".hero-photo").getAttribute("src"),
+    "assets/photo-placeholder.svg"
+  );
+});
