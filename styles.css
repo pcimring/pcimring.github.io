@@ -13,13 +13,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-padding-top: 4.5rem;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-stack);
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.5;
-  scroll-behavior: smooth;
 }
 
 .site-nav {
