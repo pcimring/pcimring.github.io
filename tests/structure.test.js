@@ -41,3 +41,30 @@ test("bio section has the approved headline and bio text", () => {
     "assets/photo-placeholder.svg"
   );
 });
+
+test("AI Orchestration & BPMN has 3 live cards with working links", () => {
+  const document = loadDocument();
+  const section = document.getElementById("orchestration");
+  assert.ok(section, "expected section#orchestration to exist");
+  assert.equal(
+    section.querySelector("h2").textContent.trim(),
+    "AI Orchestration & BPMN"
+  );
+
+  const cards = [...section.querySelectorAll(".card")];
+  assert.equal(cards.length, 3);
+
+  cards.forEach((card) => {
+    assert.equal(card.querySelector(".card-status").textContent.trim(), "Live");
+    const link = card.querySelector(".card-link");
+    assert.ok(link, "every card in this category should have a link");
+    assert.match(link.getAttribute("href"), /^https:\/\//);
+  });
+
+  const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
+  assert.deepEqual(titles, [
+    "Doc-Feedback Triage — Live Demo",
+    "Doc-Feedback Triage — Source",
+    "Camunda Docs — Merged Contribution",
+  ]);
+});
