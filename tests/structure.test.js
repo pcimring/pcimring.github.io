@@ -94,3 +94,27 @@ test("Agentic Frameworks has 2 cards: one live, one in progress with no link", (
   );
   assert.match(live.querySelector(".card-link").getAttribute("href"), /^https:\/\/github\.com/);
 });
+
+test("AI Engineering section exists with no cards yet, just a placeholder note", () => {
+  const document = loadDocument();
+  const section = document.getElementById("ai-engineering");
+  assert.ok(section, "expected section#ai-engineering to exist");
+  assert.equal(section.querySelector("h2").textContent.trim(), "AI Engineering");
+  assert.equal(section.querySelectorAll(".card").length, 0);
+  assert.match(
+    section.querySelector(".category-placeholder").textContent,
+    /coming soon/i
+  );
+});
+
+test("every nav link resolves to an existing section id", () => {
+  const document = loadDocument();
+  const links = [...document.querySelectorAll(".site-nav a")];
+  for (const link of links) {
+    const targetId = link.getAttribute("href").slice(1);
+    assert.ok(
+      document.getElementById(targetId),
+      `no element with id="${targetId}" for nav link "${link.textContent.trim()}"`
+    );
+  }
+});

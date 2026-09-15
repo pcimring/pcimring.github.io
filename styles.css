@@ -161,3 +161,8 @@ body {
 .card-link:hover {
   text-decoration: underline;
 }
+
+.category-placeholder {
+  color: var(--color-muted);
+  font-style: italic;
+}
