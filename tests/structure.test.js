@@ -118,3 +118,10 @@ test("every nav link resolves to an existing section id", () => {
     );
   }
 });
+
+test("page declares a favicon", () => {
+  const document = loadDocument();
+  const icon = document.querySelector('link[rel="icon"]');
+  assert.ok(icon, "expected a <link rel=\"icon\"> in <head>");
+  assert.equal(icon.getAttribute("href"), "assets/photo-placeholder.svg");
+});
