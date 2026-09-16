@@ -73,9 +73,22 @@ body {
 }
 
 .hero-title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.4rem;
   color: var(--color-muted);
   font-weight: 600;
+}
+
+.hero-linkedin {
+  display: inline-block;
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hero-linkedin:hover {
+  text-decoration: underline;
 }
 
 .hero-bio {
