@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { loadDocument } from "./helpers.js";
+import { loadDocument, loadHtml } from "./helpers.js";
 
 test("page title identifies Peter Cimring", () => {
   const document = loadDocument();
@@ -63,9 +63,9 @@ test("AI Orchestration & BPMN has 3 live cards with working links", () => {
 
   const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
   assert.deepEqual(titles, [
-    "Doc-Feedback Triage — Live Demo",
-    "Doc-Feedback Triage — Source",
-    "Camunda Docs — Merged Contribution",
+    "Doc-Feedback Triage - Live Demo",
+    "Doc-Feedback Triage - Source",
+    "Camunda Docs - Merged Contribution",
   ]);
 });
 
@@ -124,4 +124,13 @@ test("page declares a favicon", () => {
   const icon = document.querySelector('link[rel="icon"]');
   assert.ok(icon, "expected a <link rel=\"icon\"> in <head>");
   assert.equal(icon.getAttribute("href"), "assets/photo-placeholder.svg");
+});
+
+test("page source contains no em dashes", () => {
+  const html = loadHtml();
+  assert.doesNotMatch(
+    html,
+    /—/,
+    "found an em dash (—) in index.html, use a hyphen, comma, or restructure the sentence instead"
+  );
 });

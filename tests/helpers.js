@@ -14,3 +14,7 @@ export function loadDocument() {
 export function loadCss() {
   return readFileSync(join(ROOT, "styles.css"), "utf-8");
 }
+
+export function loadHtml() {
+  return readFileSync(join(ROOT, "index.html"), "utf-8");
+}
