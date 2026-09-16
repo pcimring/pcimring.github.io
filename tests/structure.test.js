@@ -63,8 +63,8 @@ test("AI Orchestration & BPMN has 3 live cards with working links", () => {
 
   const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
   assert.deepEqual(titles, [
-    "Doc-Feedback Triage - Live Demo",
-    "Doc-Feedback Triage - Source",
+    "Doc Feedback Triage - Live Demo",
+    "Doc Feedback Triage - Source",
     "Camunda Docs - Merged Contribution",
   ]);
 });
