@@ -41,7 +41,7 @@ test("bio section has the approved headline and bio text", () => {
   assert.equal(section.querySelectorAll(".hero-bio li").length, 9);
   assert.equal(
     section.querySelector(".hero-photo").getAttribute("src"),
-    "assets/photo-placeholder.svg"
+    "assets/photo-peter.jpg"
   );
 });
 
