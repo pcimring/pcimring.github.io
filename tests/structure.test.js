@@ -25,29 +25,52 @@ test("nav has 4 links with the expected labels and anchor targets", () => {
   });
 });
 
-test("bio section has the approved headline and bio text", () => {
+test("bio section has a sidebar (photo, name, tagline, LinkedIn) and pill content", () => {
   const document = loadDocument();
   const section = document.getElementById("bio");
   assert.ok(section, "expected section#bio to exist");
 
-  assert.equal(section.querySelector("h1").textContent.trim(), "Peter Cimring");
+  const sidebar = section.querySelector(".hero-sidebar");
+  assert.ok(sidebar, "expected .hero-sidebar to exist");
+  assert.equal(sidebar.querySelector("h1").textContent.trim(), "Peter Cimring");
   assert.equal(
-    section.querySelector(".hero-title").textContent.trim(),
+    sidebar.querySelector(".hero-title").textContent.trim(),
     "Documentation Engineer · Builder · Customer Support Specialist"
   );
-  assert.match(section.querySelector(".hero-bio").textContent, /documentation engineer/i);
-  assert.match(section.querySelector(".hero-bio").textContent, /customer support management/i);
-  assert.doesNotMatch(section.querySelector(".hero-bio").textContent, /taboola/i);
-  assert.equal(section.querySelectorAll(".hero-bio li").length, 9);
   assert.equal(
-    section.querySelector(".hero-photo").getAttribute("src"),
+    sidebar.querySelector(".hero-photo").getAttribute("src"),
     "assets/photo-peter.jpg"
   );
 
-  const linkedin = section.querySelector(".hero-linkedin");
+  const linkedin = sidebar.querySelector(".hero-linkedin");
   assert.ok(linkedin, "expected a LinkedIn link");
   assert.equal(linkedin.getAttribute("target"), "_blank");
   assert.match(linkedin.getAttribute("rel"), /noopener/);
+
+  const content = section.querySelector(".hero-content");
+  assert.ok(content, "expected .hero-content to exist");
+  assert.match(content.textContent, /documentation engineer/i);
+  assert.doesNotMatch(content.textContent, /taboola/i);
+
+  const pillRows = [...content.querySelectorAll(".pill-row")];
+  assert.equal(pillRows.length, 2, "expected a specialties pill row and a projects pill row");
+
+  const specialties = [...pillRows[0].querySelectorAll(".pill")].map((p) => p.textContent.trim());
+  assert.deepEqual(specialties, [
+    "Documentation Engineering",
+    "Developer Experience (DX)",
+    "Workflow & System Optimization",
+    "Customer Support Management",
+    "Pre/Post-Sales Technical Support",
+  ]);
+
+  const projects = [...pillRows[1].querySelectorAll(".pill")].map((p) => p.textContent.trim());
+  assert.deepEqual(projects, [
+    "Workflow Orchestration",
+    "Agentic Frameworks",
+    "Natural-Language Interfaces",
+    "Open-Source Docs Contributions",
+  ]);
 });
 
 test("AI Orchestration & BPMN has 3 live cards with working links", () => {
