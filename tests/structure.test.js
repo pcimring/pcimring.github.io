@@ -25,7 +25,7 @@ test("nav has 4 links with the expected labels and anchor targets", () => {
   });
 });
 
-test("bio section has a full-width header (name, tagline, LinkedIn, tags) and a photo + intro/projects row", () => {
+test("bio section has a full-width header (name, tags) and a photo+LinkedIn / intro+projects row", () => {
   const document = loadDocument();
   const section = document.getElementById("bio");
   assert.ok(section, "expected section#bio to exist");
@@ -33,15 +33,6 @@ test("bio section has a full-width header (name, tagline, LinkedIn, tags) and a 
   const header = section.querySelector(".hero-header");
   assert.ok(header, "expected .hero-header to exist");
   assert.equal(header.querySelector("h1").textContent.trim(), "Peter Cimring");
-  assert.equal(
-    header.querySelector(".hero-title").textContent.trim(),
-    "Documentation Engineer · Builder · Customer Support Specialist"
-  );
-
-  const linkedin = header.querySelector(".hero-linkedin");
-  assert.ok(linkedin, "expected a LinkedIn link");
-  assert.equal(linkedin.getAttribute("target"), "_blank");
-  assert.match(linkedin.getAttribute("rel"), /noopener/);
 
   const specialties = [...header.querySelectorAll(".pill-row .pill")].map((p) =>
     p.textContent.trim()
@@ -51,7 +42,7 @@ test("bio section has a full-width header (name, tagline, LinkedIn, tags) and a 
     "Developer Experience (DX)",
     "Workflow & System Optimization",
     "Customer Support Management",
-    "Pre/Post-Sales Technical Support",
+    "Pre/Post-Sales",
   ]);
 
   const body = section.querySelector(".hero-body");
@@ -60,6 +51,11 @@ test("bio section has a full-width header (name, tagline, LinkedIn, tags) and a 
     body.querySelector(".hero-photo").getAttribute("src"),
     "assets/photo-peter.jpg"
   );
+
+  const linkedin = body.querySelector(".hero-photo-wrap .hero-linkedin");
+  assert.ok(linkedin, "expected a LinkedIn link beneath the photo");
+  assert.equal(linkedin.getAttribute("target"), "_blank");
+  assert.match(linkedin.getAttribute("rel"), /noopener/);
 
   const content = body.querySelector(".hero-content");
   assert.ok(content, "expected .hero-content to exist");

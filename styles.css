@@ -51,7 +51,7 @@ body {
 
 .hero {
   padding: 3rem 2rem;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -60,27 +60,8 @@ body {
 }
 
 .hero-header h1 {
-  margin: 0 0 0.3rem;
-  font-size: 2rem;
-}
-
-.hero-title {
-  margin: 0 0 0.6rem;
-  color: var(--color-muted);
-  font-weight: 600;
-}
-
-.hero-linkedin {
-  display: inline-block;
-  margin-bottom: 1.25rem;
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.hero-linkedin:hover {
-  text-decoration: underline;
+  margin: 0 0 0.75rem;
+  font-size: 2.5rem;
 }
 
 .pill-row {
@@ -97,6 +78,7 @@ body {
   color: var(--color-accent);
   font-size: 0.85rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .hero-body {
@@ -105,13 +87,32 @@ body {
   gap: 2rem;
 }
 
+.hero-photo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .hero-photo {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
   border: 1px solid var(--color-border);
+}
+
+.hero-linkedin {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hero-linkedin:hover {
+  text-decoration: underline;
 }
 
 .hero-content {
