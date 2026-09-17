@@ -43,6 +43,8 @@ test("bio section has a full-width header (name, tags) and a photo+LinkedIn / in
     "Workflow & System Optimization",
     "Customer Support Management",
     "Pre/Post-Sales",
+    "Troubleshooting",
+    "Building & Coding",
   ]);
 
   const body = section.querySelector(".hero-body");
