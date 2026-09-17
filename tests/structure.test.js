@@ -43,6 +43,11 @@ test("bio section has the approved headline and bio text", () => {
     section.querySelector(".hero-photo").getAttribute("src"),
     "assets/photo-peter.jpg"
   );
+
+  const linkedin = section.querySelector(".hero-linkedin");
+  assert.ok(linkedin, "expected a LinkedIn link");
+  assert.equal(linkedin.getAttribute("target"), "_blank");
+  assert.match(linkedin.getAttribute("rel"), /noopener/);
 });
 
 test("AI Orchestration & BPMN has 3 live cards with working links", () => {
