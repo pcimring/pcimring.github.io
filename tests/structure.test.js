@@ -25,37 +25,27 @@ test("nav has 4 links with the expected labels and anchor targets", () => {
   });
 });
 
-test("bio section has a sidebar (photo, name, tagline, LinkedIn) and pill content", () => {
+test("bio section has a full-width header (name, tagline, LinkedIn, tags) and a photo + intro/projects row", () => {
   const document = loadDocument();
   const section = document.getElementById("bio");
   assert.ok(section, "expected section#bio to exist");
 
-  const sidebar = section.querySelector(".hero-sidebar");
-  assert.ok(sidebar, "expected .hero-sidebar to exist");
-  assert.equal(sidebar.querySelector("h1").textContent.trim(), "Peter Cimring");
+  const header = section.querySelector(".hero-header");
+  assert.ok(header, "expected .hero-header to exist");
+  assert.equal(header.querySelector("h1").textContent.trim(), "Peter Cimring");
   assert.equal(
-    sidebar.querySelector(".hero-title").textContent.trim(),
+    header.querySelector(".hero-title").textContent.trim(),
     "Documentation Engineer · Builder · Customer Support Specialist"
   );
-  assert.equal(
-    sidebar.querySelector(".hero-photo").getAttribute("src"),
-    "assets/photo-peter.jpg"
-  );
 
-  const linkedin = sidebar.querySelector(".hero-linkedin");
+  const linkedin = header.querySelector(".hero-linkedin");
   assert.ok(linkedin, "expected a LinkedIn link");
   assert.equal(linkedin.getAttribute("target"), "_blank");
   assert.match(linkedin.getAttribute("rel"), /noopener/);
 
-  const content = section.querySelector(".hero-content");
-  assert.ok(content, "expected .hero-content to exist");
-  assert.match(content.textContent, /documentation engineer/i);
-  assert.doesNotMatch(content.textContent, /taboola/i);
-
-  const pillRows = [...content.querySelectorAll(".pill-row")];
-  assert.equal(pillRows.length, 2, "expected a specialties pill row and a projects pill row");
-
-  const specialties = [...pillRows[0].querySelectorAll(".pill")].map((p) => p.textContent.trim());
+  const specialties = [...header.querySelectorAll(".pill-row .pill")].map((p) =>
+    p.textContent.trim()
+  );
   assert.deepEqual(specialties, [
     "Documentation Engineering",
     "Developer Experience (DX)",
@@ -64,12 +54,26 @@ test("bio section has a sidebar (photo, name, tagline, LinkedIn) and pill conten
     "Pre/Post-Sales Technical Support",
   ]);
 
-  const projects = [...pillRows[1].querySelectorAll(".pill")].map((p) => p.textContent.trim());
+  const body = section.querySelector(".hero-body");
+  assert.ok(body, "expected .hero-body to exist");
+  assert.equal(
+    body.querySelector(".hero-photo").getAttribute("src"),
+    "assets/photo-peter.jpg"
+  );
+
+  const content = body.querySelector(".hero-content");
+  assert.ok(content, "expected .hero-content to exist");
+  assert.match(content.textContent, /documentation engineer/i);
+  assert.doesNotMatch(content.textContent, /taboola/i);
+
+  const projects = [...content.querySelectorAll(".project-list li")].map((li) =>
+    li.textContent.trim()
+  );
   assert.deepEqual(projects, [
-    "Workflow Orchestration",
-    "Agentic Frameworks",
-    "Natural-Language Interfaces",
-    "Open-Source Docs Contributions",
+    "Workflow orchestration",
+    "Agentic framework development",
+    "Natural-language interfaces",
+    "Open-source docs contributions (LangChain, Camunda)",
   ]);
 });
 
