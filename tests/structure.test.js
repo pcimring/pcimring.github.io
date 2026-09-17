@@ -40,7 +40,7 @@ test("bio section has a full-width header (name, tags) and a photo+LinkedIn / in
   assert.deepEqual(specialties, [
     "Documentation Engineering",
     "Developer Experience (DX)",
-    "Workflow & System Optimization",
+    "Workflows & Systems",
     "Customer Support Management",
     "Pre/Post-Sales",
     "Troubleshooting",
