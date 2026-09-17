@@ -33,9 +33,12 @@ test("bio section has the approved headline and bio text", () => {
   assert.equal(section.querySelector("h1").textContent.trim(), "Peter Cimring");
   assert.equal(
     section.querySelector(".hero-title").textContent.trim(),
-    "Technical Writer · Content Engineer"
+    "Documentation Engineer · Builder · Customer Support Specialist"
   );
-  assert.match(section.querySelector(".hero-bio").textContent, /developers\.taboola\.com/);
+  assert.match(section.querySelector(".hero-bio").textContent, /documentation engineer/i);
+  assert.match(section.querySelector(".hero-bio").textContent, /customer support management/i);
+  assert.doesNotMatch(section.querySelector(".hero-bio").textContent, /taboola/i);
+  assert.equal(section.querySelectorAll(".hero-bio li").length, 9);
   assert.equal(
     section.querySelector(".hero-photo").getAttribute("src"),
     "assets/photo-placeholder.svg"
