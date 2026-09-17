@@ -95,16 +95,27 @@ test("Agentic Frameworks has 2 cards: one live, one in progress with no link", (
   assert.match(live.querySelector(".card-link").getAttribute("href"), /^https:\/\/github\.com/);
 });
 
-test("AI Engineering section exists with no cards yet, just a placeholder note", () => {
+test("AI Engineering has 2 live cards with working links", () => {
   const document = loadDocument();
   const section = document.getElementById("ai-engineering");
   assert.ok(section, "expected section#ai-engineering to exist");
   assert.equal(section.querySelector("h2").textContent.trim(), "AI Engineering");
-  assert.equal(section.querySelectorAll(".card").length, 0);
-  assert.match(
-    section.querySelector(".category-placeholder").textContent,
-    /coming soon/i
-  );
+
+  const cards = [...section.querySelectorAll(".card")];
+  assert.equal(cards.length, 2);
+
+  cards.forEach((card) => {
+    assert.equal(card.querySelector(".card-status").textContent.trim(), "Live");
+    const link = card.querySelector(".card-link");
+    assert.ok(link, "every card in this category should have a link");
+    assert.match(link.getAttribute("href"), /^https:\/\//);
+  });
+
+  const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
+  assert.deepEqual(titles, [
+    "AI Payment Scheduling - Live Demo",
+    "AI Payment Scheduling - Source",
+  ]);
 });
 
 test("every nav link resolves to an existing section id", () => {
