@@ -220,6 +220,36 @@ body {
   gap: 0.6rem;
 }
 
+.card--has-ribbon {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-ribbon-wrap {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 62px;
+  height: 62px;
+  pointer-events: none;
+}
+
+.card-ribbon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  padding: 0.3rem 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
 .card-title {
   margin: 0;
   font-size: 1.05rem;
