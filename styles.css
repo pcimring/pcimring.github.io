@@ -102,21 +102,23 @@ body {
   border: 1px solid var(--color-border);
 }
 
+.hero-links {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
 .hero-github,
 .hero-linkedin {
-  display: inline-block;
   color: var(--color-accent);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
-.hero-github {
-  margin-top: 0.75rem;
-}
-
-.hero-linkedin {
-  margin-top: 0.4rem;
+.hero-links-sep {
+  color: var(--color-muted);
 }
 
 .hero-github:hover,
