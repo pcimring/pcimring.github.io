@@ -57,11 +57,12 @@ body {
 
 .hero-banner {
   display: block;
-  width: 100%;
+  width: 85%;
   height: auto;
   border-radius: 8px;
   border: 1px solid var(--color-border);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
 }
 
 .hero-header {
