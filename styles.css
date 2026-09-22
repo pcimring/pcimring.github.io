@@ -133,6 +133,11 @@ body {
   min-width: 0;
 }
 
+.hero-greeting {
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+}
+
 .hero-intro {
   margin: 0 0 0.85rem;
   max-width: 60ch;
