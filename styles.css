@@ -188,7 +188,6 @@ body {
 .category-subheading {
   margin: 0 0 1.5rem;
   color: var(--color-muted);
-  max-width: 70ch;
 }
 
 .card-grid {
