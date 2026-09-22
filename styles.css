@@ -102,15 +102,24 @@ body {
   border: 1px solid var(--color-border);
 }
 
+.hero-github,
 .hero-linkedin {
   display: inline-block;
-  margin-top: 0.75rem;
   color: var(--color-accent);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
+.hero-github {
+  margin-top: 0.75rem;
+}
+
+.hero-linkedin {
+  margin-top: 0.4rem;
+}
+
+.hero-github:hover,
 .hero-linkedin:hover {
   text-decoration: underline;
 }
