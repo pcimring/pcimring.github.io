@@ -55,6 +55,15 @@ body {
   margin: 0 auto;
 }
 
+.hero-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 2rem;
+}
+
 .hero-header {
   margin-bottom: 2rem;
 }
