@@ -118,7 +118,9 @@ body {
 }
 
 .hero-links-sep {
-  color: var(--color-muted);
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  line-height: 1;
 }
 
 .hero-github:hover,
