@@ -247,3 +247,7 @@ body {
 .card-link:hover {
   text-decoration: underline;
 }
+
+.card-link-spacer {
+  visibility: hidden;
+}
