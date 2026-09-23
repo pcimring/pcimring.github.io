@@ -55,10 +55,10 @@ test("bio section has a full-width header (name, tags) and a photo+LinkedIn / in
     "assets/photo-peter.jpg"
   );
 
-  const linkedin = body.querySelector(".hero-photo-wrap .hero-linkedin");
-  assert.ok(linkedin, "expected a LinkedIn link beneath the photo");
-  assert.equal(linkedin.getAttribute("target"), "_blank");
-  assert.match(linkedin.getAttribute("rel"), /noopener/);
+  const github = body.querySelector(".hero-photo-wrap .hero-github");
+  assert.ok(github, "expected a GitHub link beneath the photo");
+  assert.equal(github.getAttribute("target"), "_blank");
+  assert.match(github.getAttribute("rel"), /noopener/);
 
   const content = body.querySelector(".hero-content");
   assert.ok(content, "expected .hero-content to exist");
@@ -169,6 +169,21 @@ test("page declares a favicon", () => {
   const icon = document.querySelector('link[rel="icon"]');
   assert.ok(icon, "expected a <link rel=\"icon\"> in <head>");
   assert.equal(icon.getAttribute("href"), "assets/photo-placeholder.svg");
+});
+
+test("footer has an email link and a LinkedIn link", () => {
+  const document = loadDocument();
+  const footer = document.querySelector(".site-footer");
+  assert.ok(footer, "expected a .site-footer to exist");
+
+  const email = footer.querySelector('a[href^="mailto:"]');
+  assert.ok(email, "expected a mailto link in the footer");
+  assert.equal(email.getAttribute("href"), "mailto:admin@petercimring.space");
+
+  const linkedin = footer.querySelector('a[href*="linkedin.com"]');
+  assert.ok(linkedin, "expected a LinkedIn link in the footer");
+  assert.equal(linkedin.getAttribute("target"), "_blank");
+  assert.match(linkedin.getAttribute("rel"), /noopener/);
 });
 
 test("page source contains no em dashes", () => {

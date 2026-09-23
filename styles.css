@@ -124,22 +124,14 @@ body {
   margin-top: 0.75rem;
 }
 
-.hero-github,
-.hero-linkedin {
+.hero-github {
   color: var(--color-accent);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
-.hero-links-sep {
-  color: var(--color-accent);
-  font-size: 1.3rem;
-  line-height: 1;
-}
-
-.hero-github:hover,
-.hero-linkedin:hover {
+.hero-github:hover {
   text-decoration: underline;
 }
 
@@ -295,4 +287,43 @@ body {
 
 .card-link-spacer {
   visibility: hidden;
+}
+
+.site-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.footer-heading {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-links-sep {
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  line-height: 1;
 }
