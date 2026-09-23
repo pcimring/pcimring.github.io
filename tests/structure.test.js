@@ -120,13 +120,13 @@ test("Agentic Frameworks has 2 cards: one live, one in progress with no link", (
   const inProgress = cards.find(
     (c) => c.querySelector(".card-status").textContent.trim() === "In Progress"
   );
-  assert.equal(inProgress.querySelector(".card-link"), null,
+  assert.equal(inProgress.querySelector("a.card-link"), null,
     "in-progress card should not link anywhere yet");
 
   const live = cards.find(
     (c) => c.querySelector(".card-status").textContent.trim() === "Live"
   );
-  assert.match(live.querySelector(".card-link").getAttribute("href"), /^https:\/\/github\.com/);
+  assert.match(live.querySelector("a.card-link").getAttribute("href"), /^https:\/\/github\.com/);
 });
 
 test("AI Engineering has 2 live cards with working links", () => {
@@ -178,7 +178,7 @@ test("footer has an email link and a LinkedIn link", () => {
 
   const email = footer.querySelector('a[href^="mailto:"]');
   assert.ok(email, "expected a mailto link in the footer");
-  assert.equal(email.getAttribute("href"), "mailto:admin@petercimring.space");
+  assert.equal(email.getAttribute("href"), "mailto:pcimring@gmail.com");
 
   const linkedin = footer.querySelector('a[href*="linkedin.com"]');
   assert.ok(linkedin, "expected a LinkedIn link in the footer");

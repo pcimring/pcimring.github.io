@@ -221,8 +221,8 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 62px;
-  height: 62px;
+  width: 72px;
+  height: 72px;
   pointer-events: none;
 }
 
@@ -230,16 +230,27 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150px;
+  width: 170px;
   padding: 0.3rem 0;
   transform: translate(-50%, -50%) rotate(-45deg);
-  background: var(--color-accent);
   color: #fff;
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   text-align: center;
+}
+
+.card-ribbon--live {
+  background: var(--color-accent);
+}
+
+.card-ribbon--article {
+  background: var(--color-live);
+}
+
+.card-ribbon--soon {
+  background: var(--color-progress);
 }
 
 .card-title {
