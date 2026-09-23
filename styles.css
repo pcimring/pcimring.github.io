@@ -55,15 +55,19 @@ body {
   margin: 0 auto;
 }
 
-.hero-header {
-  margin-bottom: 2rem;
-}
-
 .name-strip {
   background: #274dd3;
   border-radius: 8px;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.name-strip-text {
+  flex-shrink: 0;
 }
 
 .name-strip h1 {
@@ -79,21 +83,37 @@ body {
   font-weight: 600;
 }
 
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.hero-yaml-card {
+  flex: 1;
+  min-width: 0;
 }
 
-.pill {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(36, 84, 255, 0.1);
-  color: var(--color-accent);
+.hero-yaml {
+  margin: 0;
+  padding: 0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
+  line-height: 1.65;
+  word-break: break-word;
+  background: none;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.yaml-line {
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+}
+
+.yaml-rule {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.yaml-key {
+  color: #ffd479;
+}
+
+.yaml-str {
+  color: #fff;
 }
 
 .hero-body {
@@ -161,12 +181,15 @@ body {
 }
 
 @media (max-width: 600px) {
-  .hero-header {
+  .name-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
     text-align: center;
   }
 
-  .pill-row {
-    justify-content: center;
+  .hero-yaml {
+    font-size: 0.7rem;
   }
 
   .hero-body {
@@ -312,6 +335,11 @@ body {
   margin: 0 0 0.75rem;
   font-size: 1.4rem;
   font-weight: 600;
+  color: var(--color-muted);
+}
+
+.footer-intro {
+  margin: 0 0 1.25rem;
   color: var(--color-muted);
 }
 
