@@ -25,28 +25,39 @@ test("nav has 4 links with the expected labels and anchor targets", () => {
   });
 });
 
-test("bio section has a full-width header (name, tags) and a photo+LinkedIn / intro+projects row", () => {
+test("bio section has a name strip with the YAML block and a photo / intro row", () => {
   const document = loadDocument();
   const section = document.getElementById("bio");
   assert.ok(section, "expected section#bio to exist");
 
-  const header = section.querySelector(".hero-header");
-  assert.ok(header, "expected .hero-header to exist");
-  assert.equal(header.querySelector("h1").textContent.trim(), "Peter Cimring");
-
-  const specialties = [...header.querySelectorAll(".pill-row .pill")].map((p) =>
-    p.textContent.trim()
+  const strip = section.querySelector(".name-strip");
+  assert.ok(strip, "expected .name-strip to exist");
+  assert.equal(strip.querySelector("h1").textContent.trim(), "Peter Cimring");
+  assert.equal(
+    strip.querySelector(".hero-title").textContent.trim(),
+    "Documentation Engineer"
   );
-  assert.deepEqual(specialties, [
-    "Documentation Engineering",
-    "Developer Experience (DX)",
-    "Workflows & Systems",
-    "Team Management",
-    "Customer Support",
-    "Pre/Post-Sales",
-    "Troubleshooting",
-    "Building & Coding",
-  ]);
+
+  // Assert the shape of the YAML block, not the individual values. The values
+  // get tuned whenever the CV changes, and pinning them here is what left this
+  // test stale the last time the hero was reworked.
+  const yaml = strip.querySelector(".hero-yaml-card .hero-yaml");
+  assert.ok(yaml, "expected a .hero-yaml block inside .hero-yaml-card");
+
+  const lines = [...yaml.querySelectorAll(".yaml-line")];
+  assert.equal(lines.length, 5, "expected 3 key lines fenced by 2 --- rules");
+  assert.equal(lines.at(0).textContent.trim(), "---");
+  assert.equal(lines.at(-1).textContent.trim(), "---");
+
+  const keys = [...yaml.querySelectorAll(".yaml-key")].map((k) => k.textContent.trim());
+  assert.deepEqual(keys, ["focus", "core_skills", "ai_skills"]);
+
+  for (const line of lines.slice(1, -1)) {
+    assert.ok(
+      line.querySelectorAll(".yaml-str").length > 0,
+      `expected key line "${line.textContent.trim()}" to list at least one value`
+    );
+  }
 
   const body = section.querySelector(".hero-body");
   assert.ok(body, "expected .hero-body to exist");
@@ -69,9 +80,9 @@ test("bio section has a full-width header (name, tags) and a photo+LinkedIn / in
     li.textContent.trim()
   );
   assert.deepEqual(projects, [
-    "Workflow orchestration",
+    "AI-driven workflow orchestration",
     "Agentic framework development",
-    "Natural-language interfaces",
+    "LLM-powered natural-language interfaces",
     "Open-source docs contributions (LangChain, Camunda)",
   ]);
 });
