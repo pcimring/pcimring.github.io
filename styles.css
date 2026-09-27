@@ -99,9 +99,38 @@ body {
   color: rgba(255, 255, 255, 0.85);
 }
 
+/* Hidden only while JavaScript is in play, so script.js can measure the block
+   and blank it without the finished text flashing first. A visitor with
+   JavaScript off never gets the .js class, and sees the block as normal. */
+.js .hero-yaml {
+  visibility: hidden;
+}
+
 .yaml-line {
   padding-left: 1.4em;
   text-indent: -1.4em;
+}
+
+.yaml-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 0.05em;
+  vertical-align: text-bottom;
+  background: #ffd479;
+  animation: yaml-cursor-blink 1s steps(2, start) infinite;
+}
+
+@keyframes yaml-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yaml-cursor {
+    animation: none;
+  }
 }
 
 .yaml-rule {
