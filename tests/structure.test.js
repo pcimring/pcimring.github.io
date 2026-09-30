@@ -63,7 +63,7 @@ test("bio section has a name strip with the YAML block and a photo / intro row",
   assert.ok(body, "expected .hero-body to exist");
   assert.equal(
     body.querySelector(".hero-photo").getAttribute("src"),
-    "assets/photo-peter.jpg"
+    "assets/photo-peter-portrait.jpg"
   );
 
   const github = body.querySelector(".hero-photo-wrap .hero-github");

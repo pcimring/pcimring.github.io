@@ -7,6 +7,7 @@
   --color-progress: #9a6700;
   --color-border: #e2e2e2;
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --hero-photo-size: 260px;
 }
 
 * {
@@ -159,8 +160,8 @@ body {
 }
 
 .hero-photo {
-  width: 180px;
-  height: 180px;
+  width: var(--hero-photo-size);
+  height: var(--hero-photo-size);
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--color-border);
@@ -225,6 +226,10 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .hero-photo {
+    --hero-photo-size: 200px;
   }
 
   .project-list {
