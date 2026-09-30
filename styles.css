@@ -8,6 +8,7 @@
   --color-border: #e2e2e2;
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --hero-photo-size: 260px;
+  --lightbox-photo-size: 400px;
 }
 
 * {
@@ -159,12 +160,95 @@ body {
   flex-shrink: 0;
 }
 
+.hero-photo-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 50%;
+  cursor: zoom-in;
+  display: block;
+  line-height: 0;
+}
+
+.hero-photo-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 .hero-photo {
   width: var(--hero-photo-size);
   height: var(--hero-photo-size);
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--color-border);
+  transition: transform 0.15s ease;
+}
+
+.hero-photo-button:hover .hero-photo,
+.hero-photo-button:focus-visible .hero-photo {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    transition: none;
+  }
+
+  .hero-photo-button:hover .hero-photo,
+  .hero-photo-button:focus-visible .hero-photo {
+    transform: none;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.78);
+  cursor: zoom-out;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-image {
+  /* Square source, so one dimension keeps it a true circle at any viewport. */
+  width: min(90vw, 80vh, var(--lightbox-photo-size));
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .hero-links {
@@ -200,16 +284,6 @@ body {
   max-width: 80ch;
 }
 
-.project-list {
-  margin: 0;
-  padding-left: 1.2rem;
-  max-width: 80ch;
-}
-
-.project-list li {
-  margin-bottom: 0.35rem;
-}
-
 @media (max-width: 600px) {
   .name-strip {
     flex-direction: column;
@@ -230,10 +304,6 @@ body {
 
   .hero-photo {
     --hero-photo-size: 200px;
-  }
-
-  .project-list {
-    text-align: left;
   }
 }
 

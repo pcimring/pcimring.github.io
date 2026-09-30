@@ -15,6 +15,7 @@
     <a href="#orchestration">AI Orchestration &amp; BPMN</a>
     <a href="#agentic-frameworks">Agentic Frameworks</a>
     <a href="#ai-engineering">AI Engineering</a>
+    <a href="#contact">Get in touch</a>
   </nav>
   <section id="bio" class="hero">
     <div class="name-strip">
@@ -34,7 +35,9 @@
     </div>
     <div class="hero-body">
       <div class="hero-photo-wrap">
-        <img src="assets/photo-peter-portrait.jpg" alt="Photo of Peter Cimring" class="hero-photo">
+        <button type="button" class="hero-photo-button" aria-label="View a larger photo of Peter Cimring">
+          <img src="assets/photo-peter-portrait.jpg" alt="Photo of Peter Cimring" class="hero-photo">
+        </button>
         <div class="hero-links">
           <a class="hero-github" href="https://github.com/pcimring" target="_blank" rel="noopener noreferrer">github.com/pcimring</a>
         </div>
@@ -42,17 +45,23 @@
       <div class="hero-content">
         <p class="hero-greeting">Hi 👋</p>
         <p class="hero-intro">
-          I'm a documentation engineer with deep experience across multiple technical
-          disciplines. Above all, I believe in learning by building - and giving back
-          to the open-source tools that I use. This site showcases some of my personal
-          projects, including:
+          I'm a documentation engineer with a background on both sides of product
+          development.
         </p>
-        <ul class="project-list">
-          <li>AI-driven workflow orchestration</li>
-          <li>Agentic framework development</li>
-          <li>LLM-powered natural-language interfaces</li>
-          <li>Open-source docs contributions (LangChain, Camunda)</li>
-        </ul>
+        <p class="hero-intro">
+          As a product owner, I scoped requirements and managed development teams.
+          As a solution engineer, I handled technical support and rolled out custom
+          solutions.
+        </p>
+        <p class="hero-intro">
+          That mix is why I treat documentation as a usability problem, not just a
+          writing problem.
+        </p>
+        <p class="hero-intro">
+          Above all, I believe in learning by building - and giving back to the
+          open-source tools that I use. This site showcases some of my personal
+          projects.
+        </p>
       </div>
     </div>
   </section>
@@ -143,7 +152,7 @@
       </article>
     </div>
   </section>
-  <footer class="site-footer">
+  <footer class="site-footer" id="contact">
     <p class="footer-heading">Get in touch 🤙</p>
     <p class="footer-intro">Always happy to talk documentation, AI tooling, or new opportunities. Reach out anytime.</p>
     <div class="footer-links">
@@ -152,5 +161,9 @@
       <a class="footer-link" href="https://www.linkedin.com/in/peter-cimring" target="_blank" rel="noopener noreferrer">linkedin.com/in/peter-cimring</a>
     </div>
   </footer>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photo of Peter Cimring" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close the larger photo">&times;</button>
+    <img src="assets/photo-peter-portrait.jpg" alt="Photo of Peter Cimring" class="lightbox-image">
+  </div>
 </body>
 </html>

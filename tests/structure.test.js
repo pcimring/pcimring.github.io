@@ -7,16 +7,17 @@ test("page title identifies Peter Cimring", () => {
   assert.match(document.title, /Peter Cimring/);
 });
 
-test("nav has 4 links with the expected labels and anchor targets", () => {
+test("nav has 5 links with the expected labels and anchor targets", () => {
   const document = loadDocument();
   const links = [...document.querySelectorAll(".site-nav a")];
-  assert.equal(links.length, 4, "expected 4 nav links");
+  assert.equal(links.length, 5, "expected 5 nav links");
 
   const expected = [
     ["Home", "#bio"],
     ["AI Orchestration & BPMN", "#orchestration"],
     ["Agentic Frameworks", "#agentic-frameworks"],
     ["AI Engineering", "#ai-engineering"],
+    ["Get in touch", "#contact"],
   ];
 
   expected.forEach(([text, href], i) => {
@@ -75,16 +76,6 @@ test("bio section has a name strip with the YAML block and a photo / intro row",
   assert.ok(content, "expected .hero-content to exist");
   assert.match(content.textContent, /documentation engineer/i);
   assert.doesNotMatch(content.textContent, /taboola/i);
-
-  const projects = [...content.querySelectorAll(".project-list li")].map((li) =>
-    li.textContent.trim()
-  );
-  assert.deepEqual(projects, [
-    "AI-driven workflow orchestration",
-    "Agentic framework development",
-    "LLM-powered natural-language interfaces",
-    "Open-source docs contributions (LangChain, Camunda)",
-  ]);
 });
 
 test("AI Orchestration & BPMN has 3 live cards with working links", () => {
@@ -161,6 +152,14 @@ test("AI Engineering has 2 live cards with working links", () => {
     "AI Payment Scheduling - Live Demo",
     "AI Payment Scheduling - Source",
   ]);
+});
+
+test("the nav offers a route to the contact section from any scroll position", () => {
+  const document = loadDocument();
+  const contact = document.querySelector('.site-nav a[href="#contact"]');
+
+  assert.ok(contact, "expected a nav link pointing at the contact section");
+  assert.equal(document.getElementById("contact").tagName, "FOOTER");
 });
 
 test("every nav link resolves to an existing section id", () => {
