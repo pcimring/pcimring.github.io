@@ -178,7 +178,12 @@ test("page declares a favicon", () => {
   const document = loadDocument();
   const icon = document.querySelector('link[rel="icon"]');
   assert.ok(icon, "expected a <link rel=\"icon\"> in <head>");
-  assert.equal(icon.getAttribute("href"), "assets/photo-placeholder.svg");
+  assert.equal(icon.getAttribute("href"), "assets/favicon-32.png");
+  const ico = document.querySelector('link[rel="icon"][href="favicon.ico"]');
+  assert.ok(ico, "expected a favicon.ico fallback link");
+  const touch = document.querySelector('link[rel="apple-touch-icon"]');
+  assert.ok(touch, "expected an apple-touch-icon link");
+  assert.equal(touch.getAttribute("href"), "assets/apple-touch-icon.png");
 });
 
 test("footer has an email link and a LinkedIn link", () => {
