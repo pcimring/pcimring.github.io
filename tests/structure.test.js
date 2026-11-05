@@ -36,7 +36,7 @@ test("bio section has a name strip with the YAML block and a photo / intro row",
   assert.equal(strip.querySelector("h1").textContent.trim(), "Peter Cimring");
   assert.equal(
     strip.querySelector(".hero-title").textContent.trim(),
-    "Documentation Engineer"
+    "AI Solutions Builder"
   );
 
   // Assert the shape of the YAML block, not the individual values. The values
