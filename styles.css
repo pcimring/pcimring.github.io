@@ -284,6 +284,11 @@ body {
   max-width: 80ch;
 }
 
+.hero-intro a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .name-strip {
     flex-direction: column;

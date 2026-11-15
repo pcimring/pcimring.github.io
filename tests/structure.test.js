@@ -76,6 +76,7 @@ test("bio section has a name strip with the YAML block and a photo / intro row",
   assert.ok(content, "expected .hero-content to exist");
   assert.match(content.textContent, /building and supporting products/i);
   assert.match(content.textContent, /available for freelance projects/i);
+  assert.ok(content.querySelector('a[href="freelance.html"]'), "expected a link to the freelance page");
   assert.doesNotMatch(content.textContent, /taboola/i);
 });
 
