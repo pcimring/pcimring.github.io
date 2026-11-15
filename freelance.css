@@ -1,0 +1,275 @@
+/* Freelance service page. Shares tokens and the nav with styles.css. */
+
+.fl-page {
+  --fl-tint: #f5f7ff;
+  --fl-width: 1000px;
+}
+
+.fl-section > *,
+.fl-cta > * {
+  max-width: var(--fl-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 1. Header: full-width band with a network-pattern background */
+.fl-header {
+  background: #0b1a4a url("assets/freelance-hero.svg") center / cover no-repeat;
+  color: #fff;
+}
+
+.fl-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: calc(var(--fl-width) + 4rem);
+  margin: 0 auto;
+  padding: 4.5rem 2rem 4.5rem;
+}
+
+.fl-header-text {
+  flex: 1;
+}
+
+.fl-header h1 {
+  margin: 0;
+  font-size: 2.6rem;
+  color: #fff;
+}
+
+.fl-tagline {
+  margin: 0.35rem 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #9db4ff;
+}
+
+.fl-intro {
+  margin: 0 0 1.75rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 40rem;
+}
+
+.fl-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 5px solid #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Buttons */
+.fl-button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-accent);
+}
+
+.fl-button:hover {
+  filter: brightness(1.1);
+}
+
+.fl-button--outline {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.fl-button--light {
+  background: #fff;
+  color: var(--color-accent);
+  border-color: #fff;
+}
+
+/* Sections */
+.fl-section {
+  padding: 3.5rem 2rem;
+}
+
+.fl-section--tint {
+  background: var(--fl-tint);
+}
+
+.fl-heading {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* 2. What I build */
+.fl-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.fl-tile {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-accent);
+  border-radius: 10px;
+}
+
+.fl-tile h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.fl-tile p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* 3. How I work */
+.fl-steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+.fl-steps::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  right: 12%;
+  height: 2px;
+  background: var(--color-accent);
+  opacity: 0.35;
+}
+
+.fl-step {
+  position: relative;
+}
+
+.fl-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+}
+
+.fl-step h3 {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.fl-step p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+/* 4. Recent work */
+.fl-case {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.fl-case:last-child {
+  margin-bottom: 0;
+}
+
+.fl-case--flip .fl-case-shot {
+  order: 2;
+}
+
+.fl-case-shot img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.fl-case-text h3 {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+}
+
+.fl-case-text p {
+  margin: 0 0 1rem;
+}
+
+.fl-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* 5. Rate and contact */
+.fl-cta {
+  padding: 3rem 2rem;
+  background: var(--color-accent);
+  color: #fff;
+  text-align: center;
+}
+
+.fl-rate {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.fl-cta-email {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .fl-header-inner {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .fl-photo {
+    width: 120px;
+    height: 120px;
+    border-width: 4px;
+  }
+
+  .fl-tiles,
+  .fl-steps,
+  .fl-case {
+    grid-template-columns: 1fr;
+  }
+
+  .fl-steps::before {
+    display: none;
+  }
+
+  .fl-case--flip .fl-case-shot {
+    order: 0;
+  }
+}

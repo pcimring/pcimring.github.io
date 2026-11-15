@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Cimring - Freelance Developer</title>
+  <meta name="description" content="Freelance developer: web apps, AI tools and integrations. Spec first, built in stages, reviewed and tested.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="freelance.css">
+</head>
+<body class="fl-page">
+  <nav class="site-nav">
+    <a href="#build">What I build</a>
+    <a href="#process">How I work</a>
+    <a href="#work">Recent work</a>
+    <a href="#contact">Get in touch</a>
+  </nav>
+
+  <header class="fl-header">
+    <div class="fl-header-inner">
+    <div class="fl-header-text">
+      <h1>Peter Cimring</h1>
+      <p class="fl-tagline">Freelance developer: web apps, AI tools and integrations</p>
+      <p class="fl-intro">
+        I build software for small businesses and teams: web apps, AI features,
+        and the integrations that connect them. I work with Claude Code as my
+        development partner, and I bring 20+ years of experience in software, from development
+        to product and support.
+      </p>
+      <a class="fl-button fl-button--light" href="#contact">Get in touch</a>
+    </div>
+    <img src="assets/photo-peter-portrait.jpg" alt="Photo of Peter Cimring" class="fl-photo">
+    </div>
+  </header>
+
+  <section id="build" class="fl-section">
+    <h2 class="fl-heading">What I build</h2>
+    <div class="fl-tiles">
+      <div class="fl-tile">
+        <h3>Web apps and dynamic sites</h3>
+        <p>Admin panels, forms, search and filtering. Responsive, and RTL-ready for Hebrew.</p>
+      </div>
+      <div class="fl-tile">
+        <h3>AI features and agents</h3>
+        <p>Data extraction from documents, chat-driven tools, and process automation with a person in the loop.</p>
+      </div>
+      <div class="fl-tile">
+        <h3>Integrations</h3>
+        <p>WhatsApp, payments, CRM and REST APIs, documented so your team can maintain them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="fl-section fl-section--tint">
+    <h2 class="fl-heading">How I work</h2>
+    <ol class="fl-steps">
+      <li class="fl-step">
+        <span class="fl-step-num">1</span>
+        <h3>Spec</h3>
+        <p>We agree on what to build: user stories, screens and acceptance criteria. You approve it before any code is written.</p>
+      </li>
+      <li class="fl-step">
+        <span class="fl-step-num">2</span>
+        <h3>Build in stages</h3>
+        <p>Each stage is a working piece you can try.</p>
+      </li>
+      <li class="fl-step">
+        <span class="fl-step-num">3</span>
+        <h3>Review and test</h3>
+        <p>I review every change and test each stage against the spec.</p>
+      </li>
+      <li class="fl-step">
+        <span class="fl-step-num">4</span>
+        <h3>Handover</h3>
+        <p>The code goes to your Git repo, with setup and usage docs.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="work" class="fl-section">
+    <h2 class="fl-heading">Recent work</h2>
+    <article class="fl-case">
+      <a class="fl-case-shot" href="https://ai-payment-demo-five.vercel.app" target="_blank" rel="noopener noreferrer">
+        <img src="assets/freelance-payment-scheduling.png" alt="Screenshot of the payment scheduling demo: a payment schedule with a chat box below it">
+      </a>
+      <div class="fl-case-text">
+        <h3>AI-assisted payment scheduling</h3>
+        <p><span class="fl-label">The problem</span> Splitting an invoice into payments, then changing the plan, is fiddly spreadsheet work.</p>
+        <p><span class="fl-label">What I built</span> A React app where you create a schedule and then adjust it in plain language, such as "put the full building fee in month 1". Claude interprets the request, and the backend checks every number before it is shown.</p>
+        <a class="fl-button fl-button--outline" href="https://ai-payment-demo-five.vercel.app" target="_blank" rel="noopener noreferrer">Try the live demo</a>
+      </div>
+    </article>
+    <article class="fl-case fl-case--flip">
+      <a class="fl-case-shot" href="https://doc-feedback-triage-online-demo.vercel.app" target="_blank" rel="noopener noreferrer">
+        <img src="assets/freelance-doc-feedback-triage.png" alt="Screenshot of the feedback triage demo: a feedback form with page and comment fields">
+      </a>
+      <div class="fl-case-text">
+        <h3>Doc-feedback triage</h3>
+        <p><span class="fl-label">The problem</span> Feedback from a website form piles up, mixed with spam, and someone has to sort it by hand.</p>
+        <p><span class="fl-label">What I built</span> A Camunda business process with an AI step. It classifies each comment, discards spam, sends the rest to a person for a quick check, and files approved items as GitHub issues.</p>
+        <a class="fl-button fl-button--outline" href="https://doc-feedback-triage-online-demo.vercel.app" target="_blank" rel="noopener noreferrer">Try the live demo</a>
+      </div>
+    </article>
+  </section>
+
+  <section id="contact" class="fl-cta">
+    <p class="fl-rate">₪250/hour, or a fixed project price based on an agreed scope.</p>
+    <a class="fl-button fl-button--light" href="mailto:pcimring@gmail.com?subject=Project%20enquiry">Tell me about your project</a>
+    <p class="fl-cta-email">pcimring@gmail.com</p>
+  </section>
+
+</body>
+</html>
