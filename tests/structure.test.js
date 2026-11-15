@@ -74,7 +74,8 @@ test("bio section has a name strip with the YAML block and a photo / intro row",
 
   const content = body.querySelector(".hero-content");
   assert.ok(content, "expected .hero-content to exist");
-  assert.match(content.textContent, /documentation engineer/i);
+  assert.match(content.textContent, /building and supporting products/i);
+  assert.match(content.textContent, /available for freelance projects/i);
   assert.doesNotMatch(content.textContent, /taboola/i);
 });
 
