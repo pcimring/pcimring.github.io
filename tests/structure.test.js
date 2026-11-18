@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { loadDocument, loadHtml } from "./helpers.js";
 
+const linkLabels = (card) => [...card.querySelectorAll("a.card-link")].map((a) => a.textContent.trim());
+
 test("page title identifies Peter Cimring", () => {
   const document = loadDocument();
   assert.match(document.title, /Peter Cimring/);
@@ -14,9 +16,9 @@ test("nav has 5 links with the expected labels and anchor targets", () => {
 
   const expected = [
     ["Home", "#bio"],
+    ["AI Engineering", "#ai-engineering"],
     ["AI Orchestration & BPMN", "#orchestration"],
     ["Agentic Frameworks", "#agentic-frameworks"],
-    ["AI Engineering", "#ai-engineering"],
     ["Get in touch", "#contact"],
   ];
 
@@ -80,7 +82,7 @@ test("bio section has a name strip with the YAML block and a photo / intro row",
   assert.doesNotMatch(content.textContent, /taboola/i);
 });
 
-test("AI Orchestration & BPMN has 3 live cards with working links", () => {
+test("AI Orchestration & BPMN has 2 live cards, one per project", () => {
   const document = loadDocument();
   const section = document.getElementById("orchestration");
   assert.ok(section, "expected section#orchestration to exist");
@@ -90,21 +92,13 @@ test("AI Orchestration & BPMN has 3 live cards with working links", () => {
   );
 
   const cards = [...section.querySelectorAll(".card")];
-  assert.equal(cards.length, 3);
-
+  const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
+  assert.deepEqual(titles, ["Doc Feedback Triage", "Camunda Docs - Merged Contribution"]);
   cards.forEach((card) => {
     assert.equal(card.querySelector(".card-status").textContent.trim(), "Live");
-    const link = card.querySelector(".card-link");
-    assert.ok(link, "every card in this category should have a link");
-    assert.match(link.getAttribute("href"), /^https:\/\//);
+    assert.match(card.querySelector(".card-link").getAttribute("href"), /^https:\/\//);
   });
-
-  const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
-  assert.deepEqual(titles, [
-    "Doc Feedback Triage - Live Demo",
-    "Doc Feedback Triage - Source",
-    "Camunda Docs - Merged Contribution",
-  ]);
+  assert.deepEqual(linkLabels(cards[0]), ["View demo", "View source"]);
 });
 
 test("Agentic Frameworks has 2 cards: one live, one in progress with no link", () => {
@@ -133,27 +127,33 @@ test("Agentic Frameworks has 2 cards: one live, one in progress with no link", (
   assert.match(live.querySelector("a.card-link").getAttribute("href"), /^https:\/\/github\.com/);
 });
 
-test("AI Engineering has 2 live cards with working links", () => {
+test("AI Engineering comes first, with one live card per project", () => {
   const document = loadDocument();
   const section = document.getElementById("ai-engineering");
   assert.ok(section, "expected section#ai-engineering to exist");
   assert.equal(section.querySelector("h2").textContent.trim(), "AI Engineering");
 
-  const cards = [...section.querySelectorAll(".card")];
-  assert.equal(cards.length, 2);
+  const order = [...document.querySelectorAll("section.category")].map((s) => s.id);
+  assert.deepEqual(order, ["ai-engineering", "orchestration", "agentic-frameworks"]);
 
+  const cards = [...section.querySelectorAll(".card")];
+  const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
+  assert.deepEqual(titles, ["Feature-Request Scoring", "AI Payment Scheduling", "Hebrew Invoice Intake"]);
   cards.forEach((card) => {
     assert.equal(card.querySelector(".card-status").textContent.trim(), "Live");
-    const link = card.querySelector(".card-link");
-    assert.ok(link, "every card in this category should have a link");
-    assert.match(link.getAttribute("href"), /^https:\/\//);
+    card.querySelectorAll("a.card-link").forEach((a) => {
+      assert.match(a.getAttribute("href"), /^https:\/\//);
+      assert.equal(a.getAttribute("target"), "_blank");
+    });
   });
 
-  const titles = cards.map((c) => c.querySelector(".card-title").textContent.trim());
-  assert.deepEqual(titles, [
-    "AI Payment Scheduling - Live Demo",
-    "AI Payment Scheduling - Source",
-  ]);
+  assert.deepEqual(linkLabels(cards[0]), ["View demo", "View source"]);
+  assert.deepEqual(
+    [...cards[0].querySelectorAll("a.card-link")].map((a) => a.getAttribute("href")),
+    ["https://feature-request-scoring.vercel.app", "https://github.com/pcimring/feature-request-scoring"]
+  );
+  assert.deepEqual(linkLabels(cards[1]), ["View demo", "View source"]);
+  assert.deepEqual(linkLabels(cards[2]), ["View demo"]);
 });
 
 test("the nav offers a route to the contact section from any scroll position", () => {

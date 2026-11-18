@@ -428,6 +428,17 @@ body {
   text-decoration: underline;
 }
 
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card-links-sep {
+  color: var(--color-muted);
+}
+
 .card-link-spacer {
   visibility: hidden;
 }

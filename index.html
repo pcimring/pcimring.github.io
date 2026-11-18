@@ -14,9 +14,9 @@
 <body>
   <nav class="site-nav">
     <a href="#bio">Home</a>
+    <a href="#ai-engineering">AI Engineering</a>
     <a href="#orchestration">AI Orchestration &amp; BPMN</a>
     <a href="#agentic-frameworks">Agentic Frameworks</a>
-    <a href="#ai-engineering">AI Engineering</a>
     <a href="#contact">Get in touch</a>
   </nav>
   <section id="bio" class="hero">
@@ -51,8 +51,8 @@
           running.
         </p>
         <p class="hero-intro">
-          With experience in building and supporting products, as well as
-          optimizing customer workflows, I now build with all three in mind.
+          With years of experience in building and supporting products, as well as
+          optimizing workflows, I now build with all 3 in mind.
         </p>
         <p class="hero-intro">
           Above all, I believe in learning by building - and giving back to the
@@ -65,6 +65,54 @@
       </div>
     </div>
   </section>
+  <section id="ai-engineering" class="category">
+    <h2>AI Engineering</h2>
+    <p class="category-subheading">
+      Building LLM reasoning into products and workflows directly through a model API (e.g. Anthropic API), no framework.
+    </p>
+    <div class="card-grid">
+      <article class="card card--has-ribbon">
+        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--live">Live Demo</span></div>
+        <h3 class="card-title">Feature-Request Scoring</h3>
+        <p class="card-description">
+          An LLM scores the open feature requests in a GitHub org on five dimensions and explains every score,
+          so a product manager can rank, sort and filter the backlog. Shown here on Cloudinary's public repos.
+        </p>
+        <span class="card-status status-live">Live</span>
+        <div class="card-links">
+          <a class="card-link" href="https://feature-request-scoring.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
+          <span class="card-links-sep" aria-hidden="true">&middot;</span>
+          <a class="card-link" href="https://github.com/pcimring/feature-request-scoring" target="_blank" rel="noopener noreferrer">View source</a>
+        </div>
+      </article>
+      <article class="card card--has-ribbon">
+        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--live">Live Demo</span></div>
+        <h3 class="card-title">AI Payment Scheduling</h3>
+        <p class="card-description">
+          An AI agent redistributes a payment schedule from plain-language chat instructions,
+          with every proposed number independently verified before it's shown.
+        </p>
+        <span class="card-status status-live">Live</span>
+        <div class="card-links">
+          <a class="card-link" href="https://ai-assisted-payment-scheduling.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
+          <span class="card-links-sep" aria-hidden="true">&middot;</span>
+          <a class="card-link" href="https://github.com/pcimring/ai-assisted-payment-scheduling" target="_blank" rel="noopener noreferrer">View source</a>
+        </div>
+      </article>
+      <article class="card card--has-ribbon">
+        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--live">Live Demo</span></div>
+        <h3 class="card-title">Hebrew Invoice Intake</h3>
+        <p class="card-description">
+          An LLM reads a photo or PDF of an Israeli invoice and extracts the supplier, line items,
+          VAT and totals, then separate code checks every number before the document is approved.
+        </p>
+        <span class="card-status status-live">Live</span>
+        <div class="card-links">
+          <a class="card-link" href="https://hebrew-invoice-intake.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
+        </div>
+      </article>
+    </div>
+  </section>
   <section id="orchestration" class="category">
     <h2>AI Orchestration &amp; BPMN</h2>
     <p class="category-subheading">
@@ -73,21 +121,17 @@
     <div class="card-grid">
       <article class="card card--has-ribbon">
         <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--live">Live Demo</span></div>
-        <h3 class="card-title">Doc Feedback Triage - Live Demo</h3>
+        <h3 class="card-title">Doc Feedback Triage</h3>
         <p class="card-description">
           A BPMN-driven workflow that triages incoming documentation feedback, with a
           human-in-the-loop review step before anything is filed.
         </p>
         <span class="card-status status-live">Live</span>
-        <a class="card-link" href="https://doc-feedback-triage-online-demo.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
-      </article>
-      <article class="card">
-        <h3 class="card-title">Doc Feedback Triage - Source</h3>
-        <p class="card-description">
-          Application code behind the live demo above, including the Camunda/Zeebe process definition.
-        </p>
-        <span class="card-status status-live">Live</span>
-        <a class="card-link" href="https://github.com/pcimring/doc-feedback-triage-agent" target="_blank" rel="noopener noreferrer">View source</a>
+        <div class="card-links">
+          <a class="card-link" href="https://doc-feedback-triage-online-demo.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
+          <span class="card-links-sep" aria-hidden="true">&middot;</span>
+          <a class="card-link" href="https://github.com/pcimring/doc-feedback-triage-agent" target="_blank" rel="noopener noreferrer">View source</a>
+        </div>
       </article>
       <article class="card">
         <h3 class="card-title">Camunda Docs - Merged Contribution</h3>
@@ -105,15 +149,6 @@
       Building custom agents with frameworks like LangChain: chains, tools, and memory.
     </p>
     <div class="card-grid">
-      <article class="card card--has-ribbon">
-        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--soon">Coming Soon</span></div>
-        <h3 class="card-title">LangChain: A Gentle Introduction</h3>
-        <p class="card-description">
-          A hands-on introduction to building agents with LangChain.
-        </p>
-        <span class="card-status status-progress">In Progress</span>
-        <span class="card-link card-link-spacer" aria-hidden="true">&nbsp;</span>
-      </article>
       <article class="card">
         <h3 class="card-title">LangChain Docs - 4 Merged Contributions</h3>
         <p class="card-description">
@@ -123,42 +158,14 @@
         <span class="card-status status-live">Live</span>
         <a class="card-link" href="https://github.com/langchain-ai/docs/pulls?q=is%3Apr+is%3Amerged+author%3Apcimring" target="_blank" rel="noopener noreferrer">View PRs</a>
       </article>
-    </div>
-  </section>
-  <section id="ai-engineering" class="category">
-    <h2>AI Engineering</h2>
-    <p class="category-subheading">
-      Embedding LLM functionality directly via an API (e.g. Anthropic API), no framework.
-    </p>
-    <div class="card-grid">
       <article class="card card--has-ribbon">
-        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--live">Live Demo</span></div>
-        <h3 class="card-title">Hebrew Invoice Intake - Live Demo</h3>
+        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--soon">Coming Soon</span></div>
+        <h3 class="card-title">LangChain: A Gentle Introduction</h3>
         <p class="card-description">
-          Claude reads a photo or PDF of an Israeli invoice and extracts the supplier, line items,
-          VAT and totals, then separate code checks every number before the document is approved.
+          A hands-on introduction to building agents with LangChain.
         </p>
-        <span class="card-status status-live">Live</span>
-        <a class="card-link" href="https://hebrew-invoice-intake.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
-      </article>
-      <article class="card card--has-ribbon">
-        <div class="card-ribbon-wrap"><span class="card-ribbon card-ribbon--live">Live Demo</span></div>
-        <h3 class="card-title">AI Payment Scheduling - Live Demo</h3>
-        <p class="card-description">
-          An AI agent redistributes a payment schedule from plain-language chat instructions,
-          with every proposed number independently verified before it's shown.
-        </p>
-        <span class="card-status status-live">Live</span>
-        <a class="card-link" href="https://ai-assisted-payment-scheduling.vercel.app" target="_blank" rel="noopener noreferrer">View demo</a>
-      </article>
-      <article class="card">
-        <h3 class="card-title">AI Payment Scheduling - Source</h3>
-        <p class="card-description">
-          React frontend, Vercel serverless API calling Claude directly, and the
-          deterministic reconciliation logic behind the live demo above.
-        </p>
-        <span class="card-status status-live">Live</span>
-        <a class="card-link" href="https://github.com/pcimring/ai-assisted-payment-scheduling" target="_blank" rel="noopener noreferrer">View source</a>
+        <span class="card-status status-progress">In Progress</span>
+        <span class="card-link card-link-spacer" aria-hidden="true">&nbsp;</span>
       </article>
     </div>
   </section>
