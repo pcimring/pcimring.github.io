@@ -36,7 +36,7 @@ test("how I work has four numbered steps", () => {
 
 test("each case study links to its live demo in a new tab and has a local screenshot", () => {
   const cases = document.querySelectorAll(".fl-case");
-  assert.equal(cases.length, 2);
+  assert.equal(cases.length, 3);
   cases.forEach((c) => {
     const img = c.querySelector(".fl-case-shot img");
     assert.ok(img.getAttribute("alt"), "screenshot needs alt text");
